@@ -17,6 +17,13 @@
       "inventory_name": "Фігурка Monkey D. Luffy",
       "description": "Деталізована колекційна фігурка капітана Піратів.",
       "image": "https://via.placeholder.com/300x200?text=Luffy+Figure"
+    },
+    {
+      "inventory_name": "GG",
+      "description": "GoodGame",
+      "image": "https://via.placeholder.com/300x200?text=No+Image",
+      "id": "bJFq-V6V4Bg"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
