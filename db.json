@@ -29,6 +29,13 @@
       "inventory_name": "Фігурка Kafka (Honkai: Star Rail)",
       "description": "Ексклюзивна фігурка мисливиці за Стелларонами.",
       "image": "images/kafka.jpg"
+    },
+    {
+      "inventory_name": "GG",
+      "description": "GoodGame",
+      "image": "https://via.placeholder.com/300x200?text=No+Image",
+      "id": "XEctYs-If-s"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
