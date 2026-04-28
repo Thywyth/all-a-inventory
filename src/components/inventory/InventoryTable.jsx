@@ -1,10 +1,16 @@
 import { useEffect, useState } from 'react';
 import { getInventory, deleteInventory } from '../../services/inventoryApi';
+import ConfirmModal from './ConfirmModal';
+import InventoryDetails from './InventoryDetails';
 
 export default function InventoryTable() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  
+  // Стани для модальних вікон
+  const [itemToDelete, setItemToDelete] = useState(null);
+  const [itemToView, setItemToView] = useState(null);
 
   const fetchItems = async () => {
     try {
@@ -22,14 +28,15 @@ export default function InventoryTable() {
     fetchItems();
   }, []);
 
-  const handleDelete = async (id) => {
-    if (window.confirm('Ви впевнені, що хочете видалити цю позицію?')) {
-      try {
-        await deleteInventory(id);
-        fetchItems(); // Оновлюємо список після видалення
-      } catch (err) {
-        alert('Помилка при видаленні');
-      }
+  // Функція, яка реально видаляє товар після підтвердження в модалці
+  const confirmDelete = async () => {
+    if (!itemToDelete) return;
+    try {
+      await deleteInventory(itemToDelete);
+      setItemToDelete(null); // Закриваємо модалку
+      fetchItems(); // Оновлюємо таблицю
+    } catch (err) {
+      alert('Помилка при видаленні');
     }
   };
 
@@ -55,21 +62,32 @@ export default function InventoryTable() {
               <td>
                 <img 
                   src={item.image} 
-  alt={item.inventory_name} 
-  style={{ width: '50px', height: '50px', objectFit: 'cover' }} 
+                  alt={item.inventory_name} 
+                  style={{ width: '50px', height: '50px', objectFit: 'cover' }} 
                 />
               </td>
               <td>{item.inventory_name}</td>
               <td>{item.description}</td>
-              <td>
-                <button onClick={() => alert('Перегляд ' + item.id)}>Переглянути</button>
-                <button onClick={() => alert('Редагування ' + item.id)}>Редагувати</button>
-                <button onClick={() => handleDelete(item.id)}>Видалити</button>
+              <td style={{ display: 'flex', gap: '5px' }}>
+                <button onClick={() => setItemToView(item)}>Переглянути</button>
+                <button onClick={() => alert('Редагування в процесі розробки')}>Редагувати</button>
+                <button onClick={() => setItemToDelete(item.id)}>Видалити</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+
+      {/* Наші модальні вікна */}
+      <ConfirmModal 
+        isOpen={!!itemToDelete} 
+        onConfirm={confirmDelete} 
+        onCancel={() => setItemToDelete(null)} 
+      />
+      <InventoryDetails 
+        item={itemToView} 
+        onClose={() => setItemToView(null)} 
+      />
     </div>
   );
 }

@@ -6,8 +6,7 @@ const API_URL = 'http://localhost:3000';
 export const getInventory = () => axios.get(`${API_URL}/inventory`);
 export const getInventoryById = (id) => axios.get(`${API_URL}/inventory/${id}`);
 
-export const createInventory = (formData) => 
-  axios.post(`${API_URL}/register`, formData, { headers: { 'Content-Type': 'multipart/form-data' } });
+export const createInventory = (data) => axios.post(`${API_URL}/inventory`, data);
 
 export const updateInventoryText = (id, data) => axios.put(`${API_URL}/inventory/${id}`, data);
 export const updateInventoryPhoto = (id, formData) => 
