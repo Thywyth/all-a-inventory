@@ -3,27 +3,32 @@
     {
       "id": "1",
       "inventory_name": "SSD Kingston NV2 1TB M.2 2280 NVMe",
-      "description": "Швидкий та надійний накопичувач формату M.2.",
-      "image": "https://via.placeholder.com/300x200?text=SSD+Kingston+1TB"
+      "description": "Швидкий та надійний накопичувач формату M.2 для значного прискорення системи та ігор.",
+      "image": "images/ssd.jpg"
     },
     {
       "id": "2",
       "inventory_name": "Ноутбук ASUS TUF Gaming A15",
-      "description": "Потужний ігровий ноутбук, який впорається з найважчими задачами.",
-      "image": "https://via.placeholder.com/300x200?text=ASUS+TUF+A15"
+      "description": "Потужний ігровий ноутбук, який впорається з найважчими задачами та сучасними іграми.",
+      "image": "/images/asus.jpg"
     },
     {
       "id": "3",
       "inventory_name": "Фігурка Monkey D. Luffy",
-      "description": "Деталізована колекційна фігурка капітана Піратів.",
-      "image": "https://via.placeholder.com/300x200?text=Luffy+Figure"
+      "description": "Деталізована колекційна фігурка капітана Піратів Солом'яного Капелюха.",
+      "image": "images/luffy.jpg"
     },
     {
-      "inventory_name": "GG",
-      "description": "GoodGame",
-      "image": "https://via.placeholder.com/300x200?text=No+Image",
-      "id": "bJFq-V6V4Bg"
+      "id": "4",
+      "inventory_name": "Настільна гра Carcassonne",
+      "description": "Класична стратегічна гра на викладання тайлів. Ідеально для компанії.",
+      "image": "images/carcassonne.jpg"
+    },
+    {
+      "id": "5",
+      "inventory_name": "Фігурка Kafka (Honkai: Star Rail)",
+      "description": "Ексклюзивна фігурка мисливиці за Стелларонами.",
+      "image": "images/kafka.jpg"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
