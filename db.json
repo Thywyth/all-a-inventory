@@ -1,0 +1,22 @@
+{
+  "inventory": [
+    {
+      "id": "1",
+      "inventory_name": "SSD Kingston NV2 1TB M.2 2280 NVMe",
+      "description": "Швидкий та надійний накопичувач формату M.2.",
+      "image": "https://via.placeholder.com/300x200?text=SSD+Kingston+1TB"
+    },
+    {
+      "id": "2",
+      "inventory_name": "Ноутбук ASUS TUF Gaming A15",
+      "description": "Потужний ігровий ноутбук, який впорається з найважчими задачами.",
+      "image": "https://via.placeholder.com/300x200?text=ASUS+TUF+A15"
+    },
+    {
+      "id": "3",
+      "inventory_name": "Фігурка Monkey D. Luffy",
+      "description": "Деталізована колекційна фігурка капітана Піратів.",
+      "image": "https://via.placeholder.com/300x200?text=Luffy+Figure"
+    }
+  ]
+}

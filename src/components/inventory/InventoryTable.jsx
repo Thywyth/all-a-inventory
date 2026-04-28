@@ -54,9 +54,9 @@ export default function InventoryTable() {
             <tr key={item.id}>
               <td>
                 <img 
-                  src={`http://localhost:3000/api/inventory/${item.id}/photo`} 
-                  alt={item.inventory_name} 
-                  style={{ width: '50px', height: '50px', objectFit: 'cover' }} 
+                  src={item.image} 
+  alt={item.inventory_name} 
+  style={{ width: '50px', height: '50px', objectFit: 'cover' }} 
                 />
               </td>
               <td>{item.inventory_name}</td>
