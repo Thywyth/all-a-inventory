@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getInventory, deleteInventory } from '../../services/inventoryApi';
 import ConfirmModal from './ConfirmModal';
 import InventoryDetails from './InventoryDetails';
+import EditModal from './EditModal';
 
 export default function InventoryTable() {
   const [items, setItems] = useState([]);
@@ -11,6 +12,7 @@ export default function InventoryTable() {
   // Стани для модальних вікон
   const [itemToDelete, setItemToDelete] = useState(null);
   const [itemToView, setItemToView] = useState(null);
+  const [itemToEdit, setItemToEdit] = useState(null);
 
   const fetchItems = async () => {
     try {
@@ -70,7 +72,7 @@ export default function InventoryTable() {
               <td>{item.description}</td>
               <td style={{ display: 'flex', gap: '5px' }}>
                 <button onClick={() => setItemToView(item)}>Переглянути</button>
-                <button onClick={() => alert('Редагування в процесі розробки')}>Редагувати</button>
+                <button onClick={() => setItemToEdit(item)}>Редагувати</button>
                 <button onClick={() => setItemToDelete(item.id)}>Видалити</button>
               </td>
             </tr>
@@ -88,6 +90,16 @@ export default function InventoryTable() {
         item={itemToView} 
         onClose={() => setItemToView(null)} 
       />
+
+      <EditModal 
+        item={itemToEdit} 
+        isOpen={!!itemToEdit} 
+        onClose={() => setItemToEdit(null)} 
+        onSuccess={() => {
+          setItemToEdit(null); // Закриваємо вікно
+          fetchItems(); // Оновлюємо дані в таблиці
+        }} 
+/>
     </div>
   );
 }
